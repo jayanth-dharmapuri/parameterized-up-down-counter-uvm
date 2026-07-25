@@ -1,0 +1,45 @@
+# Simulation files
+work/
+work_lib/
+transcript
+vsim.wlf
+modelsim.ini
+*.wlf
+*.vcd
+*.fst
+*.log
+*.jou
+*.pb
+*.vstf
+*.ucdb
+*.cov
+*.db
+
+# Questa/ModelSim
+qrun.out/
+questa_lib/
+coverage_report/
+
+# VCS
+simv
+simv.daidir/
+csrc/
+ucli.key
+DVEfiles/
+
+# Verilator
+obj_dir/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Generated reports
+reports/
+waves/
+logs/
