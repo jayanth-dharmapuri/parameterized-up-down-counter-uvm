@@ -9,5 +9,11 @@ package counter_pkg;
   `include "counter_sequencer.sv"
   `include "counter_sequences.sv"
   `include "counter_driver.sv"
+  `include "counter_monitor.sv"
+  `include "counter_agent.sv"
+  `include "counter_scoreboard.sv"
+  `include "counter_coverage.sv"
+  `include "counter_env.sv"
+  `include "counter_tests.sv"
 
 endpackage
