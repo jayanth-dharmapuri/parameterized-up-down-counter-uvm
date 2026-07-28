@@ -1,0 +1,708 @@
+[2026-07-28 09:17:24 UTC] qrun -batch -access=rw+/. -uvmhome uvm-1.2 '-timescale' '1ns/1ns' -mfcu design.sv testbench.sv '-voptargs=+acc=npr'  -do  " run -all; exit"  
+QuestaSim-64 qrun 2025.2 Utility 2025.05 May 31 2025
+Start time: 05:17:24 on Jul 28,2026
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+** Note: (qrun-220) 'modelsim.ini' is used as the ini file.
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+** Note: (vmap-220) 'modelsim.ini' is used as the ini file.
+QuestaSim-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+Start time: 05:17:25 on Jul 28,2026
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -csession=incr 
+** Note: (vlog-220) 'modelsim.ini' is used as the ini file.
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling module up_down_counter
+-- Compiling interface counter_if
+-- Compiling package counter_pkg
+-- Compiling module counter_assertions
+-- Compiling module top_tb
+-- Importing package counter_pkg
+
+Top level modules:
+	top_tb
+** Note: (vlog-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+End time: 05:17:28 on Jul 28,2026, Elapsed time: 0:00:03
+Errors: 0, Warnings: 0
+QuestaSim-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 05:17:28 on Jul 28,2026
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+2+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+** Note: (vopt-220) 'modelsim.ini' is used as the ini file.
+
+Top level modules:
+	top_tb
+
+Analyzing design...
+-- Loading module top_tb
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Importing package counter_pkg
+-- Loading package questa_uvm_pkg
+-- Loading interface counter_if
+-- Loading module up_down_counter
+-- Loading module counter_assertions
+Optimizing 8 design-units (inlining 0/4 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package counter_pkg(fast)
+-- Optimizing module counter_assertions(fast)
+-- Optimizing interface counter_if(fast__2)
+-- Optimizing module top_tb(fast)
+-- Optimizing module up_down_counter(fast)
+-- Optimizing interface counter_if(fast)
+Optimized design name is qrun_opt
+End time: 05:17:35 on Jul 28,2026, Elapsed time: 0:00:07
+Errors: 0, Warnings: 1
+# ** Note: (vsim-220) 'modelsim.ini' is used as the ini file.
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 05:17:36 on Jul 28,2026
+# Loading /tmp/root@1411571b0864_dpi_35/linux_x86_64_gcc-11/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2025.2 linux_x86_64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.counter_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.counter_pkg(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.top_tb(fast)
+# Loading work.counter_if(fast__2)
+# Loading work.up_down_counter(fast)
+# Loading work.counter_assertions(fast)
+# ** Note: (vsim-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
+# Compiling /tmp/root@1411571b0864_dpi_35/linux_x86_64_gcc-11/exportwrapper.c
+# Loading /tmp/root@1411571b0864_dpi_35/linux_x86_64_gcc-11/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test counter_full_test...
+# UVM_INFO testbench.sv(1033) @ 0: uvm_test_top [COUNTER_FULL_TEST] TEST 1: RESET STARTED
+# UVM_INFO testbench.sv(527) @ 5000: uvm_test_top.env.scoreboard [counter_scoreboard] RESET PASSED: count=0x0
+# UVM_INFO testbench.sv(527) @ 15000: uvm_test_top.env.scoreboard [counter_scoreboard] RESET PASSED: count=0x0
+# UVM_INFO testbench.sv(527) @ 25000: uvm_test_top.env.scoreboard [counter_scoreboard] RESET PASSED: count=0x0
+# UVM_INFO testbench.sv(1037) @ 25000: uvm_test_top [COUNTER_FULL_TEST] TEST 1: RESET COMPLETED
+# UVM_INFO testbench.sv(1040) @ 25000: uvm_test_top [COUNTER_FULL_TEST] TEST 2: LOAD STARTED
+# UVM_INFO testbench.sv(547) @ 35000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(1046) @ 35000: uvm_test_top [COUNTER_FULL_TEST] TEST 2: LOAD COMPLETED
+# UVM_INFO testbench.sv(1049) @ 35000: uvm_test_top [COUNTER_FULL_TEST] TEST 3: COUNT-UP STARTED
+# UVM_INFO testbench.sv(547) @ 45000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 55000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 65000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 75000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 85000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 95000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 105000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 115000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 125000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 135000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 145000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 155000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 165000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 175000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 185000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 195000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 205000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 215000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(1055) @ 215000: uvm_test_top [COUNTER_FULL_TEST] TEST 3: COUNT-UP COMPLETED
+# UVM_INFO testbench.sv(1058) @ 215000: uvm_test_top [COUNTER_FULL_TEST] TEST 4: COUNT-DOWN STARTED
+# UVM_INFO testbench.sv(547) @ 225000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 235000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 245000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 255000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 265000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 275000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 285000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 295000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 305000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 315000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 325000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 335000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 345000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 355000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 365000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 375000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 385000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 395000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(1064) @ 395000: uvm_test_top [COUNTER_FULL_TEST] TEST 4: COUNT-DOWN COMPLETED
+# UVM_INFO testbench.sv(1067) @ 395000: uvm_test_top [COUNTER_FULL_TEST] TEST 5: HOLD STARTED
+# UVM_INFO testbench.sv(547) @ 405000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 415000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 425000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 435000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 445000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(1073) @ 445000: uvm_test_top [COUNTER_FULL_TEST] TEST 5: HOLD COMPLETED
+# UVM_INFO testbench.sv(1076) @ 445000: uvm_test_top [COUNTER_FULL_TEST] TEST 6: RANDOM STARTED
+# UVM_INFO testbench.sv(547) @ 455000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 465000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 475000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 485000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 495000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 505000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 515000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 525000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 535000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 545000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 555000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 565000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 575000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 585000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 595000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 605000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 615000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 625000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 635000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 645000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 655000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 665000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 675000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 685000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 695000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 705000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 715000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 725000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 735000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 745000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 755000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 765000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 775000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 785000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 795000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 805000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 815000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 825000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 835000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 845000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 855000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 865000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 875000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 885000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 895000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 905000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 915000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 925000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 935000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 945000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 955000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 965000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 975000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 985000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 995000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1005000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 1015000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 1025000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1035000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1045000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 1055000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1065000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1075000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1085000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 1095000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1105000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 1115000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 1125000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 1135000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1145000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1155000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1165000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1175000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1185000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1195000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1205000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1215000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1225000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1235000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1245000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1255000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1265000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1275000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1285000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1295000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1305000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1315000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1325000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1335000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1345000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1355000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1365000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1375000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1385000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1395000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1405000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1415000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1425000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1435000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 1445000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1455000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1465000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1475000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1485000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1495000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1505000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 1515000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 1525000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 1535000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1545000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1555000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1565000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1575000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 1585000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 1595000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1605000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 1615000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 1625000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1635000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1645000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1655000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1665000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1675000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1685000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1695000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1705000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 1715000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 1725000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1735000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 1745000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1755000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1765000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1775000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 1785000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 1795000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 1805000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 1815000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 1825000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 1835000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1845000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1855000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1865000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1875000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 1885000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1895000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1905000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1915000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 1925000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 1935000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 1945000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1955000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 1965000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1975000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1985000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 1995000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 2005000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2015000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 2025000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 2035000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 2045000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2055000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2065000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2075000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2085000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2095000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 2105000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2115000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2125000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2135000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2145000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 2155000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2165000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2175000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2185000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 2195000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2205000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 2215000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2225000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2235000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 2245000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2255000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2265000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2275000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2285000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2295000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2305000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2315000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2325000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2335000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 2345000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2355000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 2365000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 2375000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2385000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2395000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 2405000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 2415000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 2425000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 2435000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2445000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2455000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2465000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2475000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2485000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2495000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2505000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2515000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2525000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2535000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2545000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2555000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2565000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2575000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 2585000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2595000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 2605000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 2615000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 2625000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 2635000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 2645000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 2655000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 2665000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 2675000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 2685000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 2695000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 2705000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2715000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 2725000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 2735000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 2745000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 2755000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 2765000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2775000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2785000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2795000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2805000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 2815000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 2825000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2835000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 2845000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 2855000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 2865000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 2875000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 2885000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 2895000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 2905000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 2915000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 2925000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 2935000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2945000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 2955000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 2965000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 2975000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(527) @ 2985000: uvm_test_top.env.scoreboard [counter_scoreboard] RESET PASSED: count=0x0
+# UVM_INFO testbench.sv(547) @ 2995000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3005000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 3015000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3025000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3035000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 3045000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3055000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 3065000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3075000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 3085000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3095000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3105000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(527) @ 3115000: uvm_test_top.env.scoreboard [counter_scoreboard] RESET PASSED: count=0x0
+# UVM_INFO testbench.sv(547) @ 3125000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3135000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3145000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3155000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3165000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 3175000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3185000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3195000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3205000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3215000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3225000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3235000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3245000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3255000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3265000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3275000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3285000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3295000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3305000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3315000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3325000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3335000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3345000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3355000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3365000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3375000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3385000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3395000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3405000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 3415000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 3425000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 3435000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3445000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3455000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3465000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3475000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3485000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3495000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3505000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3515000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 3525000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3535000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 3545000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 3555000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 3565000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3575000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3585000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3595000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3605000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3615000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 3625000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 3635000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 3645000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3655000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 3665000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3675000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3685000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3695000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 3705000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3715000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3725000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3735000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3745000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3755000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3765000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 3775000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 3785000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3795000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3805000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3815000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3825000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3835000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 3845000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3855000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3865000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3875000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3885000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3895000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3905000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3915000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 3925000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 3935000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 3945000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 3955000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 3965000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 3975000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 3985000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 3995000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 4005000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 4015000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4025000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4035000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 4045000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 4055000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4065000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4075000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 4085000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 4095000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4105000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4115000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4125000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 4135000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 4145000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 4155000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 4165000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4175000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 4185000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4195000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 4205000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4215000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4225000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4235000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 4245000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4255000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 4265000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 4275000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4285000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4295000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4305000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4315000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4325000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4335000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4345000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 4355000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4365000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4375000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 4385000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 4395000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4405000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 4415000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 4425000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(527) @ 4435000: uvm_test_top.env.scoreboard [counter_scoreboard] RESET PASSED: count=0x0
+# UVM_INFO testbench.sv(547) @ 4445000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 4455000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 4465000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 4475000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 4485000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 4495000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 4505000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 4515000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 4525000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 4535000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 4545000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 4555000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 4565000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4575000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4585000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4595000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 4605000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4615000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 4625000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 4635000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 4645000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 4655000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4665000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 4675000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 4685000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 4695000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x8 actual=0x8
+# UVM_INFO testbench.sv(547) @ 4705000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 4715000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 4725000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 4735000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 4745000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4755000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 4765000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4775000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 4785000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4795000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4805000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 4815000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 4825000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x7 actual=0x7
+# UVM_INFO testbench.sv(547) @ 4835000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 4845000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 4855000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 4865000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 4875000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 4885000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 4895000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 4905000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 4915000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 4925000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 4935000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 4945000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 4955000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 4965000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 4975000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 4985000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 4995000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 5005000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 5015000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 5025000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 5035000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5045000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5055000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5065000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5075000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5085000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xf actual=0xf
+# UVM_INFO testbench.sv(547) @ 5095000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 5105000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 5115000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 5125000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 5135000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x9 actual=0x9
+# UVM_INFO testbench.sv(547) @ 5145000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 5155000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 5165000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 5175000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 5185000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 5195000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 5205000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 5215000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 5225000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xa actual=0xa
+# UVM_INFO testbench.sv(547) @ 5235000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xb actual=0xb
+# UVM_INFO testbench.sv(547) @ 5245000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xe actual=0xe
+# UVM_INFO testbench.sv(547) @ 5255000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xd actual=0xd
+# UVM_INFO testbench.sv(547) @ 5265000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0xc actual=0xc
+# UVM_INFO testbench.sv(547) @ 5275000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 5285000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 5295000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 5305000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 5315000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 5325000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 5335000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(547) @ 5345000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5355000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5365000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x0 actual=0x0
+# UVM_INFO testbench.sv(547) @ 5375000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x6 actual=0x6
+# UVM_INFO testbench.sv(547) @ 5385000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x5 actual=0x5
+# UVM_INFO testbench.sv(547) @ 5395000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 5405000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 5415000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x4 actual=0x4
+# UVM_INFO testbench.sv(547) @ 5425000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 5435000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 5445000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x1 actual=0x1
+# UVM_INFO testbench.sv(1082) @ 5445000: uvm_test_top [COUNTER_FULL_TEST] TEST 6: RANDOM COMPLETED
+# UVM_INFO testbench.sv(547) @ 5455000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x2 actual=0x2
+# UVM_INFO testbench.sv(547) @ 5465000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(547) @ 5475000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO testbench.sv(1086) @ 5485000: uvm_test_top [COUNTER_FULL_TEST] ALL COUNTER TEST SCENARIOS COMPLETED
+# UVM_INFO testbench.sv(547) @ 5485000: uvm_test_top.env.scoreboard [counter_scoreboard] COUNT MATCH: expected=0x3 actual=0x3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 5485000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO testbench.sv(723) @ 5485000: uvm_test_top.env.coverage [counter_coverage] FINAL FUNCTIONAL COVERAGE = 100.00%
+# UVM_INFO testbench.sv(574) @ 5485000: uvm_test_top.env.scoreboard [counter_scoreboard] SCOREBOARD PASSED: PASSED=549 FAILED=0
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 5485000: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  569
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [COUNTER_FULL_TEST]    13
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# [counter_coverage]     1
+# [counter_scoreboard]   550
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 5485 ns  Iteration: 70  Instance: /top_tb
+# End time: 05:17:38 on Jul 28,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+End time: 05:17:38 on Jul 28,2026, Elapsed time: 0:00:14
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   0
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:   0, Warnings:   0
+  Totals: Errors:   0, Warnings:   1
+Done
